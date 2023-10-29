@@ -1,0 +1,14 @@
+
+#w1q1
+custom_stopwords = set([
+    "the", "and", "is", "in", "it", "to", "of", "a", "with", "for",
+    "this", "on", "that", "we", "an", "as", "by", "at", "you", "from",
+    "but", "not", "or", "be", "are", "if", "your", "I", "was", "will",
+    "my", "has", "our", "so", "can", "all", "there", "their", "when",
+    "which", "no", "up", "out", "more", "do", "than", "just", "here"
+])
+corpus = " Corpus data provide the frequency of occurrence of linguistic items"
+words = corpus.split()
+filtered_words = [word for word in words if word.lower() not in custom_stopwords]
+cleaned_corpus = " ".join(filtered_words)
+print(cleaned_corpus)

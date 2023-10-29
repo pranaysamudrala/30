@@ -1,0 +1,13 @@
+
+#w2q5 
+from nltk.stem import PorterStemmer
+stemmer = PorterStemmer()
+word = "running"
+suffixes = []
+root_word = stemmer.stem(word)
+if word != root_word:
+    suffix = word[len(root_word):]
+    suffixes.append(suffix)
+print("Input Word:", word)
+print("Root Word:", root_word)
+print("Suffixes:", suffixes)

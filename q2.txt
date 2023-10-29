@@ -1,0 +1,15 @@
+
+#w2q2
+import nltk
+nltk.download('punkt')
+corpus = " Corpus data provide the frequency of occurrence of linguistic items"
+tokens = nltk.word_tokenize(corpus)
+max_length_token = ""
+max_length = 0
+for token in tokens:
+    token_length = len(token)
+    if token_length > max_length:
+        max_length = token_length
+        max_length_token = token
+print("Maximum Length Token:", max_length_token)
+print("Length of Maximum Length Token:", max_length)

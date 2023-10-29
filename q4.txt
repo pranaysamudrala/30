@@ -1,0 +1,28 @@
+
+#w2 q4.1 derivational
+import nltk
+nltk.download('wordnet')
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+words = ['cared','university','fairly','easily','singing','sings','sung','singer','sportingly','magnified']
+stem_words = []
+for w in words:
+    x = lemmatizer.lemmatize(w,pos="v")
+    stem_words.append(x)
+for e1,e2 in zip(words,stem_words):
+    print(e1+' ---- '+e2)
+
+
+#w2 q4.2 inflectual
+import nltk
+from nltk.stem.porter import PorterStemmer
+from nltk.stem.lancaster import LancasterStemmer
+words = ['cared','university','fairly','easily','singing', 'sings','sung','singer','sportingly','magnified']
+st = LancasterStemmer()
+print("Lanchaster Stemmer")
+stem_words = []
+for w in words:
+    x = st.stem(w)
+    stem_words.append(x)
+for e1,e2 in zip(words,stem_words):
+    print(e1+' ----'+e2)

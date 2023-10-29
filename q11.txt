@@ -1,0 +1,27 @@
+
+#w6 q11 geo
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.chunk import ne_chunk
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
+def count_geo_entities(corpus):
+    geo_entity_count = 0
+    for sentence in corpus:
+        words = word_tokenize(sentence)
+        tagged_words = nltk.pos_tag(words)
+        entities = ne_chunk(tagged_words)
+
+        for entity in entities:
+            if isinstance(entity, nltk.tree.Tree) and entity.label() == 'GPE':
+                geo_entity_count += 1
+
+    return geo_entity_count
+
+corpus = [
+    "Malla Reddy University is a recognized institute for academic learning in India",
+    "Welcome to the city centre of Hyderabad",
+    "India is a developing country in the world"
+]
+count = count_geo_entities(corpus)
+print("Number of geopolitical entities:", count)

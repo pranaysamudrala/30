@@ -1,0 +1,19 @@
+
+#w3q  q7,8
+import nltk
+from nltk import ngrams, FreqDist
+nltk.download('punkt')
+text = "Corpus data provide the frequency of occurrence of linguistic items"
+words = nltk.word_tokenize(text)
+N = 2
+n_grams = list(ngrams(words, N))
+freq_dist = FreqDist(n_grams)
+print("N-gram Frequency Distribution:")
+for ngram, frequency in freq_dist.items():
+    print(f"{ngram}: {frequency}")
+ngram_probabilities = {}
+for ngram, frequency in freq_dist.items():
+    ngram_probabilities[ngram] = frequency / len(n_grams)
+print("\nN-gram Probabilities:")
+for ngram, probability in ngram_probabilities.items():
+    print(f"{ngram}: {probability}")

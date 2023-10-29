@@ -1,0 +1,19 @@
+
+#w5 q10 parse
+import nltk
+nltk.download('punkt')  
+nltk.download('averaged_perceptron_tagger')  
+from nltk.tokenize import word_tokenize
+def parse_corpus(corpus):
+    parsed_sentences = []
+    for sentence in corpus:
+        words = word_tokenize(sentence)
+        tagged_sentence = nltk.pos_tag(words)
+        parsed_sentences.append(tagged_sentence)
+    return parsed_sentences
+corpus = ["My name is Manisha",
+             "I am 20 years old",
+             "I like Biryani"]
+parsed_corpus = parse_corpus(corpus)
+for sentence in parsed_corpus:
+    print(sentence)

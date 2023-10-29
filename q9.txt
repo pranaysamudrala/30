@@ -1,0 +1,14 @@
+
+#w4 q9 POSTag
+import nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+from nltk.tokenize import word_tokenize
+from nltk import pos_tag
+sentence = "Shiva meets his girlfriend on every sunday"
+words = word_tokenize(sentence)
+pos_tags = pos_tag(words)
+nouns = [word for word, tag in pos_tags if tag in ['NN', 'NNS', 'NNP', 'NNPS']]
+verbs = [word for word, tag in pos_tags if tag in ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ']]
+print("Verbs:", verbs)
+print("Nouns:", nouns)
